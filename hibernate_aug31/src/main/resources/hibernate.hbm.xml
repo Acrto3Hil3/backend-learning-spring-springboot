@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping>
+
+	<class name="com.utkarsh01.entity.Library" table="library01">
+
+		<id name="bookNo" column="bno">
+			<generator class="increment" />
+		</id>
+<property name="bookName"  column="bname"/>
+
+<property name="bookAuthor" column="bauthor" />
+
+<property name="medium" column="language" />
+<property name="bookQuantity" column="bqty" />
+<property name="bookPrice" column="bprice"/>
+
+	</class>
+
+</hibernate-mapping>
+
