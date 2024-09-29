@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping>
+
+	<class name="com.utkarsh01.entity.Student" table="student01">
+	
+		<id name="sId" column="st_Id" type="int">
+		<generator class="assigned" />
+		</id>
+		
+		<property  name="name"  type="java.lang.String"  column="st_Name"/>
+		<property  name="dept"  type="java.lang.String"  column="st_Dept"/>
+		<property  name="mark"  type="java.lang.Double"  column="st_Mark"/>
+	</class>
+	
+</hibernate-mapping>
+

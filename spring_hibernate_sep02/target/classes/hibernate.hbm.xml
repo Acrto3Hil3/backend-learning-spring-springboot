@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<hibernate-mapping>
+    <class name="com.utkarsh01.entity.Employee" table="employee02">
+        <id name="id" column="e_Id">
+            <generator class="increment" />
+        </id>
+        <property name="name" column="e_name" />
+        <property name="address" column="e_address" />
+        <property name="salary" column="e_salary" />
+    </class>
+</hibernate-mapping>
+
