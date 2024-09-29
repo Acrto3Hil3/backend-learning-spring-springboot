@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="s1" class="model.Student">
+		<property name="firstName" value="Ajax"></property>
+		<property name="lastName" value="JavaScript"></property>
+		<property name="address" value="Js"></property>
+	</bean>
+	
+	<bean id="s2" class="model.Student">
+	<constructor-arg index="0" value="ram"></constructor-arg>
+	<constructor-arg index="1" value="Kumar"></constructor-arg>
+	<constructor-arg index="2" value="hyd"></constructor-arg>
+	</bean>
+	
+	<bean id="s3" class="model.Student">
+	<constructor-arg index="0" ref="s1"></constructor-arg>
+	</bean>
+	
+	<bean id="s4" class="model.Student">
+	<constructor-arg index="0" value="Sham"></constructor-arg>
+	<constructor-arg index="1" value="Kumar"></constructor-arg>
+	
+	</bean>
+	
+</beans>
