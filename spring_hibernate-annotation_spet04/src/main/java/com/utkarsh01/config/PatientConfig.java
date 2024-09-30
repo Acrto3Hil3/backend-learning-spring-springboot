@@ -15,44 +15,45 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.utkarsh01.dao.PatientDaoImp;
 import com.utkarsh01.entity.PatientEntity;
 
-@Configuration @EnableTransactionManagement
-@ComponentScan(basePackages= {"com.utkarsh01"})
+@Configuration
+@EnableTransactionManagement
+@ComponentScan(basePackages = { "com.utkarsh01" })
 public class PatientConfig {
-	
+
 	@Bean
 	public DataSource dataSource() {
-		DriverManagerDataSource dataSource=new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost/springpractise");
-		dataSource.setUsername("root");
-		dataSource.setPassword("1234");
-		return dataSource;
+		DriverManagerDataSource dtSource = new DriverManagerDataSource();
+		dtSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dtSource.setUrl("jdbc:mysql://localhost/springpractise");
+		dtSource.setUsername("root");
+		dtSource.setPassword("1234");
+		return dtSource;
 	}
-	
+
 	@Bean
-	public LocalSessionFactoryBean factoryBean() {
-		LocalSessionFactoryBean sessionFactory=new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(dataSource());
-		Properties properties=new Properties();
+	public LocalSessionFactoryBean sessFactBean() {
+		LocalSessionFactoryBean sfBean = new LocalSessionFactoryBean();
+		sfBean.setDataSource(dataSource());
+		Properties properties = new Properties();
 		properties.setProperty("hibernate.show_sql", "false");
 		properties.setProperty("hibernate.format_sql", "true");
-		sessionFactory.setHibernateProperties(properties);
-		sessionFactory.setAnnotatedClasses(PatientEntity.class);
-		return sessionFactory;
+		sfBean.setHibernateProperties(properties);
+		sfBean.setAnnotatedClasses(PatientEntity.class);
+		return sfBean;
 	}
-	
+
 	@Bean
-	public HibernateTransactionManager transactionManager() {
-		HibernateTransactionManager transactionManager=new HibernateTransactionManager();
-		transactionManager.setSessionFactory(factoryBean().getObject());
-		return transactionManager;
+	public HibernateTransactionManager transManager() {
+		HibernateTransactionManager htm = new HibernateTransactionManager();
+		htm.setSessionFactory(sessFactBean().getObject());
+		return htm;
 	}
-	
+
 	@Bean
-	public PatientDaoImp dao() {
-		PatientDaoImp dao=new PatientDaoImp();
-		dao.setSessionFactory(factoryBean().getObject());
+	public PatientDaoImp daoImp() {
+		PatientDaoImp dao = new PatientDaoImp();
+		dao.setSessionFactory(sessFactBean().getObject());
 		return dao;
 	}
-	
+
 }

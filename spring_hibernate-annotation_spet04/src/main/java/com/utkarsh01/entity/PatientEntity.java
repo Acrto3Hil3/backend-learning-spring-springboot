@@ -10,9 +10,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor
-@Entity @Table(name="patient_entity")
+@Entity
 public class PatientEntity {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private Integer pId;
 	private String pName;
