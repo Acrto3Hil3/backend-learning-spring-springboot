@@ -18,10 +18,5 @@ class SpringBootContextSep09ApplicationTests {
 	void testToCreate() {
 		System.out.println(emp);
 	}
-	@Test
-	void contextLoads() {
-	}
 	
-	
-
 }

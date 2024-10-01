@@ -17,5 +17,6 @@ public class AppConfig {
 		e.setSalary(65000d);
 		System.out.println("hi config file");
 		return e;
+		
 	}
 }
