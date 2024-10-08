@@ -7,7 +7,7 @@
 <title>Home</title>
 </head>
 <body>
-<h1>EMpployee Management System</h1>
-	<a href="showDetails">Get All Employee Data</a>
+	<h1>Employee Management System</h1>
+	<a href="showEmp">Show Page</a>
 </body>
 </html>
