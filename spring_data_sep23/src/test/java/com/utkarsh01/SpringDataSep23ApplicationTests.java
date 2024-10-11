@@ -12,13 +12,12 @@ import com.utkarsh01.repository.StudentRepo;
 
 @SpringBootTest
 class SpringDataSep23ApplicationTests {
-
 	@Autowired
 	private StudentRepo sRepo;
 	
 	@Test
 	// find by marks default method
-	void Test1() {
+	void test1() {
 		List<Student> stu=sRepo.findByMarks(55d);
 		stu.forEach(s->System.out.println(s));
 		System.out.println("Marks obtained..");	
@@ -46,4 +45,17 @@ class SpringDataSep23ApplicationTests {
 	Assertions.assertEquals(1, stu.size());
 	}
 	
+	@Test
+	void test5() {
+		List<Student> stu=sRepo.getMarksNativeSQL();
+		stu.forEach(s->System.out.println(s));
+		Assertions.assertEquals(2, stu.size());
+	}
+	
+	@Test
+	void test6() {
+		Double maxSalary=sRepo.getMaxMarks();
+		System.out.println("max salary : "+maxSalary);
+		Assertions.assertTrue(maxSalary>0);
+	}
 }
