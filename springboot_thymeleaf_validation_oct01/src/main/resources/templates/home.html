@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>EMployee Management System</h1>
+	<a th:href="@{/addEmp}"> Add Employee</a>
+
+	<table border="3">
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Desgnation</td>
+			<td>Department</td>
+			<td>Salary</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+		<tr th:if="${empKey.size()==0}">
+		<td align="left" colspan="6"> No Employee Found!!!</td>
+		</tr>
+		<tr th:each="emp: ${empKey}">
+			<td th:text="${emp.eId}"></td>
+			<td th:text="${emp.eName}"></td>
+			<td th:text="${emp.eDesg}"></td>
+			<td th:text="${emp.eDepartment}"></td>
+			<td th:text="${emp.eSalary}"></td>
+			<td> <a th:href="@{/editEmp/ {eId} (eId=${emp.eId} ) }">Edit</a> </td>
+			<td> <a th:href="@{/deleteEmp/ {eId} (eId=${emp.eId} ) }">Delete</a> </td>
+		</tr>
+	</table>
+</body>
+</html>
