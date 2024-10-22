@@ -33,7 +33,7 @@ function searchButton(){
 
 </head>
 <body>
-<fmt:setBundle basename="label"  var="lb"/>
+<fmt:setBundle basename="label" />
 <h1><fmt:message key="employee.show.header"/></h1>
 <a href="addEmp"> <button> <fmt:message key="employee.show-employees.add-employee.header" /> </button> </a>
 <form name="frm">
